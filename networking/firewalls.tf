@@ -1,5 +1,5 @@
-resource "google_compute_firewall" "from-bastion-to-all" {
-  name = "${var.random}-from-bastion-to-cluster"
+resource "google_compute_firewall" "from-bastion-to-all-ssh" {
+  name = "${var.random}-from-bastion-to-all-ssh"
   network = google_compute_network.network.name
 
   direction = "INGRESS"
@@ -19,8 +19,8 @@ resource "google_compute_firewall" "from-bastion-to-all" {
     google_compute_network.network]
 }
 
-resource "google_compute_firewall" "from-internet-to-bastion" {
-  name = "${var.random}-from-internet-to-bastion"
+resource "google_compute_firewall" "from-internet-to-bastion-ssh" {
+  name = "${var.random}-from-internet-to-bastion-ssh"
   network = google_compute_network.network.name
 
   direction = "INGRESS"
@@ -40,8 +40,8 @@ resource "google_compute_firewall" "from-internet-to-bastion" {
     google_compute_network.network]
 }
 
-resource "google_compute_firewall" "from-internet-to-vpn" {
-  name = "${var.random}-from-internet-to-vpn"
+resource "google_compute_firewall" "from-internet-to-vpn-ssh" {
+  name = "${var.random}-from-internet-to-vpn-ssh"
   network = google_compute_network.network.name
 
   direction = "INGRESS"
@@ -54,8 +54,23 @@ resource "google_compute_firewall" "from-internet-to-vpn" {
   allow {
     protocol = "tcp"
     ports = [
-      "1194"]
+      "22"]
   }
+
+  depends_on = [
+    google_compute_network.network]
+}
+
+resource "google_compute_firewall" "from-internet-to-vpn-openvpn" {
+  name = "${var.random}-from-internet-to-vpn-openvpn"
+  network = google_compute_network.network.name
+
+  direction = "INGRESS"
+
+  source_ranges = [
+    "0.0.0.0/0"]
+  target_tags = [
+    "vpn"]
 
   allow {
     protocol = "udp"
