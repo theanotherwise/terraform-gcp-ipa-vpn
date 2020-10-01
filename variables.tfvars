@@ -21,7 +21,7 @@ network = "network"
 # IPA
 
 ipa_name = "ipa"
-ipa_count = 2
+ipa_count = 1
 ipa_tags = [
   "ipa"]
 ipa_region = "us-central1"
@@ -34,7 +34,7 @@ ipa_network_cidr = "10.0.11.0/24"
 # VPN
 
 vpn_name = "vpn"
-vpn_count = 2
+vpn_count = 1
 vpn_tags = [
   "vpn"]
 vpn_region = "us-central1"

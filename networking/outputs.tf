@@ -18,10 +18,6 @@ output "subnetwork_ipa_name" {
   value = google_compute_subnetwork.ipa.name
 }
 
-output "address_ipa_address" {
-  value = google_compute_address.ipa.*.address
-}
-
 output "subnetwork_vpn_name" {
   value = google_compute_subnetwork.vpn.name
 }
