@@ -41,7 +41,7 @@ resource "google_compute_firewall" "from-internet-to-bastion" {
 }
 
 resource "google_compute_firewall" "from-internet-to-vpn" {
-  name = "${var.random}-fgit adrom-internet-to-vpn"
+  name = "${var.random}-from-internet-to-vpn"
   network = google_compute_network.network.name
 
   direction = "INGRESS"
@@ -53,6 +53,12 @@ resource "google_compute_firewall" "from-internet-to-vpn" {
 
   allow {
     protocol = "tcp"
+    ports = [
+      "1194"]
+  }
+
+  allow {
+    protocol = "udp"
     ports = [
       "1194"]
   }
