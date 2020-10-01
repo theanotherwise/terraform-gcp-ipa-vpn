@@ -9,6 +9,7 @@ module "ipa" {
   ipa_machine_type = var.ipa_machine_type
   ipa_network_cidr = var.ipa_network_cidr
 
+  provider_address = module.networking.address_ipa_address
   provider_subnetwork_name = module.networking.subnetwork_ipa_name
 
   dependencies = [

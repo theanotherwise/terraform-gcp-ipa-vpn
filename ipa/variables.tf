@@ -30,6 +30,10 @@ variable "provider_subnetwork_name" {
   type = string
 }
 
+variable "provider_address" {
+  type = list(string)
+}
+
 variable "dependencies" {
   type = list(string)
 }

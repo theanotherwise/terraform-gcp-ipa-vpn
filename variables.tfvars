@@ -23,7 +23,7 @@ network = "network"
 ipa_name = "ipa"
 ipa_count = 1
 ipa_tags = [
-  "ipa"]
+  "ipa", "all"]
 ipa_region = "us-central1"
 ipa_zone = "us-central1-a"
 ipa_machine_type = "n1-standard-8"
@@ -36,7 +36,7 @@ ipa_network_cidr = "10.0.11.0/24"
 vpn_name = "vpn"
 vpn_count = 1
 vpn_tags = [
-  "vpn"]
+  "vpn", "all"]
 vpn_region = "us-central1"
 vpn_zone = "us-central1-a"
 vpn_machine_type = "n1-standard-8"

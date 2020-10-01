@@ -15,6 +15,10 @@ resource "google_compute_instance" "ipa" {
   }
   network_interface {
     subnetwork = var.provider_subnetwork_name
+
+    access_config {
+      nat_ip = element(var.provider_address, count.index)
+    }
   }
 
   allow_stopping_for_update = true
